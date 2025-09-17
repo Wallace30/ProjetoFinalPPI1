@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="PT-br">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <title>Clínica Tupatro - Cadastrar Funcionário</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+
+
+  <header class="d-flex justify-content-center align-items-center position-relative p-1">
+
+    <h1 class="text-center">Clínica Tupatro</h1>
+
+  </header>
+
+
+
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="agendamento.php">Agendamento</a></li>
+      </ul>
+  </nav>
+
+
+
+  <main>
+
+    <h2 class="conteudoTitulo">Cadastrar Funcionário</h2>
+
+    <form action="cadastrar-funcionario.php" method="POST">
+
+      <div class="mb-3">
+
+        <label for="nome" class="form-label">Nome</label>
+
+        <input type="text" class="form-control" id="nome" name="nome" required>
+
+      </div>
+
+
+
+      <div class="mb-3">
+
+        <label for="email" class="form-label">Email</label>
+
+        <input type="email" class="form-control" id="email" name="email" required>
+
+      </div>
+
+
+
+      <div class="mb-3">
+
+        <label for="senha" class="form-label">Senha</label>
+
+        <input type="password" class="form-control" id="senha" name="senha" required>
+
+      </div>
+
+
+
+      <div class="mb-3">
+
+        <label for="estadoCivil" class="form-label">Estado Civil</label>
+
+        <input type="text" class="form-control" id="estadoCivil" name="estadoCivil">
+
+      </div>
+
+
+
+      <div class="mb-3">
+
+        <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+
+        <input type="date" class="form-control" id="dataNascimento" name="dataNascimento">
+
+      </div>
+
+
+
+      <div class="mb-3">
+
+        <label for="funcao" class="form-label">Função</label>
+
+        <input type="text" class="form-control" id="funcao" name="funcao">
+
+      </div>
+
+      
+
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+    </form>
+
+</main>
+
+
+
+  <footer>
+
+      <address>Endereço da Clínica: Avenida Rondon Pacheco 123, sala: 123</address>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+
+    if (status) {
+      let mensagem = '';
+      
+      switch (status) {
+        case 'emailduplicado':
+          mensagem = 'Este email j� est� cadastrado. Por favor, utilize outro.';
+          break;
+        case 'errodb':
+          mensagem = 'Ocorreu uma falha ao cadastrar o funcion�rio. Tente novamente.';
+          break;
+        case 'campos':
+          mensagem = 'Por favor, preencha todos os campos obrigat�rios (Nome, Email, Senha).';
+          break;
+      }
+
+      if (mensagem) {
+        alert(mensagem);
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>

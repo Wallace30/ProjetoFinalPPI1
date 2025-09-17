@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="PT-br">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clínica Tupatro - Contato</title>
+
+    <link
+
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+
+      rel="stylesheet"
+
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+
+  <body class="contact-page">
+
+    <header
+
+      class="d-flex justify-content-center align-items-center position-relative p-1"
+
+    >
+
+      <h1 class="text-center">Clínica Tupatro</h1>
+
+    </header>
+
+
+
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="agendamento.php">Agendamento</a></li>
+      </ul>
+  </nav>
+
+
+    <main>
+
+      <h2 class="conteudoTitulo">Sugestões e Reclamações</h2>
+
+
+
+      <form action="cadastro-contato.php" method="POST">
+  <div class="row">
+    <div class="col-12">
+      <label for="inputNome" class="form-label">Nome completo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputNome"
+        name="nome" placeholder="Digite seu nome"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <label for="inputEmail" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="inputEmail"
+        name="email" placeholder="Digite seu email"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputTelefone" class="form-label">Telefone</label>
+      <input
+        type="tel"
+        class="form-control"
+        id="inputTelefone"
+        name="telefone" placeholder="Digite seu telefone"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <label for="inputMensagem" class="form-label">Mensagem</label>
+      <textarea
+        class="form-control"
+        id="inputMensagem"
+        name="mensagem" rows="5"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+</form>
+    </main>
+
+
+
+    <footer>
+
+      <address>
+
+        Endereço da Clínica: Avenida Rondon Pacheco 123, sala: 123
+
+      </address>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+
+    if (status) {
+      let mensagem = '';
+      
+      switch (status) {
+        case 'sucesso':
+          mensagem = 'Mensagem enviada com sucesso! Obrigado pelo contato.';
+          break;
+        case 'errodb':
+          mensagem = 'Ocorreu uma falha ao enviar sua mensagem. Tente novamente mais tarde.';
+          break;
+        case 'campos':
+          mensagem = 'Por favor, preencha todos os campos obrigat�rios.';
+          break;
+      }
+
+      if (mensagem) {
+        alert(mensagem);
+      }
+    }
+  });
+</script>
+
+  </body>
+
+</html>
+

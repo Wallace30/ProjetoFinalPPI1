@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cl�nica Tupatro - Cadastrar M�dico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="d-flex justify-content-center align-items-center position-relative p-1">
+    <h1 class="text-center">Cl�nica Tupatro</h1>
+  </header>
+
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="agendamento.php">Agendamento</a></li>
+      </ul>
+  </nav>
+
+  <main class="container my-4">
+    <h2 class="conteudoTitulo">Cadastrar Medico</h2>
+    <form action="cadastrar-medico.php" method="POST">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="especialidade" class="form-label">Especialidade</label>
+        <input type="text" class="form-control" id="especialidade" name="especialidade" required>
+      </div>
+      
+      <div class="mb-3">
+        <label for="crm" class="form-label">CRM</label>
+        <input type="text" class="form-control" id="crm" name="crm" required>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+  </main>
+
+  <footer>
+      <address>Endereco da Clinica: Avenida Rondon Pacheco 123, sala: 123</address>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form'); 
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+
+    if (status) {
+      let mensagem = '';
+      
+      switch (status) {
+       
+        case 'sucesso':
+          mensagem = 'Medico cadastrado com sucesso!';
+          form.reset();
+          break;
+          
+        case 'crmduplicado':
+          mensagem = 'Este CRM ja esta cadastrado. Por favor, verifique os dados.';
+          break;
+        case 'errodb':
+          mensagem = 'Ocorreu uma falha ao cadastrar o medico. Tente novamente.';
+          break;
+        case 'campos':
+          mensagem = 'Por favor, preencha todos os campos obrigat�rios.';
+          break;
+      }
+
+      if (mensagem) {
+        alert(mensagem);
+      }
+    }
+  });
+</script></body>
+</html>
